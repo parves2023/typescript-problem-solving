@@ -104,8 +104,8 @@ class Car extends Vehicle {
     const myCar = new Car("Toyota", 2020, "Corolla");
     const myCar2 = new Car("Honda", 2021, "Civic");
 
-    console.log(myCar.getInfo());  
-    console.log(myCar.getModel()); 
+    // console.log(myCar.getInfo());  
+    // console.log(myCar.getModel()); 
 
 
 
@@ -115,6 +115,23 @@ class Car extends Vehicle {
 
 
 
-// problem : 4
+// problem : 5
+function processValue(value: string | number): number {
+    if (typeof value === "string") {
+        return value.length;    
+    } else {
+        return value * 2;
+    }
+}
+
+// console.log(processValue("hello")); // Output: 5
+// console.log(processValue(10)); // Output: 20    
+
+
+
+
+
+
+
 
 
