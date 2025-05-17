@@ -1,21 +1,21 @@
-// problem : 1
+
 function formatString(input: string, toUpper?: boolean): string {
   if (toUpper) {
     return input.toUpperCase();
   }
   return input;
 }
-// Example usage:
+
 const str1 = formatString("hello");
 const str2 = formatString("hello", true);
 const str3 = formatString("hello", false);
 const str4 = formatString("hello", undefined);
-// console.log(str1); // Output: "hello world"
-// console.log(str2); // Output: "HELLO WORLD"
-// console.log(str3); // Output: "hello world"
-// console.log(str4); // Output: "hello world"
+// console.log(str1);
+// console.log(str2); 
+// console.log(str3); 
+// console.log(str4); 
 
-// problem : 2
+
 function filterByRating(
   items: { title: string; rating: number }[]
 ): { title: string; rating: number }[] {
@@ -44,7 +44,14 @@ const books2 = [
 // console.log(filterByRating(books));
 // console.log(filterByRating(books2));
 
-// problem : 3
+
+
+
+
+
+
+
+
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   let result: T[] = [];
   const length = arrays.length;
@@ -56,7 +63,13 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 // console.log(concatenateArrays([1, 2], [3, 4]));
 // console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
-// problem : 4
+
+
+
+
+
+
+
 class Vehicle {
   private make: string;
   private year: number;
@@ -86,7 +99,12 @@ const myCar2 = new Car("Honda", 2021, "Civic");
 // console.log(myCar.getInfo());
 // console.log(myCar.getModel());
 
-// problem : 5
+
+
+
+
+
+
 function processValue(value: string | number): number {
   if (typeof value === "string") {
     return value.length;
@@ -95,10 +113,17 @@ function processValue(value: string | number): number {
   }
 }
 
-// console.log(processValue("hello")); // Output: 5
-// console.log(processValue(10)); // Output: 20
+// console.log(processValue("hello"));
+// console.log(processValue(10));
 
-// problem : 6
+
+
+
+
+
+
+
+
 interface Product {
   name: string;
   price: number;
@@ -126,8 +151,13 @@ const products = [
 
 // console.log(getMostExpensiveProduct(products));
 
-// problem : 7
-// Enum to represent days of the week
+
+
+
+
+
+
+
 enum Day {
   Monday,
   Tuesday,
@@ -154,9 +184,8 @@ function getDayType(day: Day): string {
   }
 }
 
-// Example usage:
-// console.log(getDayType(Day.Monday)); // Output: "Weekday"
-// console.log(getDayType(Day.Saturday)); // Output: "Weekend"
+// console.log(getDayType(Day.Monday)); 
+// console.log(getDayType(Day.Saturday)); 
 
 
 
@@ -168,7 +197,7 @@ function getDayType(day: Day): string {
 
 
 
-// problem : 8
+
 async function squareAsync(n: number): Promise<number> {
   if (n < 0) {
     throw new Error("Negative number not allowed");
@@ -178,10 +207,5 @@ async function squareAsync(n: number): Promise<number> {
   return n * n;
 }
 
-squareAsync(4).then(console.log); // Output after 1s: 16
-squareAsync(-3).catch(console.error); // Output: Error: Negative number not allowed
-
-
-
-
-
+// squareAsync(4).then(console.log);
+// squareAsync(-3).catch(console.error); 
