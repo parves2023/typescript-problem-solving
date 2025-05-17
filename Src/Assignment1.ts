@@ -59,3 +59,24 @@ const books2 = [
 
 
 // problem : 3
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+    let result: T[] = [];
+    const length = arrays.length;
+    for (let i = 0; i < length; i++) {
+      result = result.concat(arrays[i]);
+    }
+    return result;
+}
+// console.log(concatenateArrays([1, 2], [3, 4]));
+// console.log(concatenateArrays([1, 2], [3, 4], [5])); 
+
+
+
+
+
+
+
+
+// problem : 4
+
+
