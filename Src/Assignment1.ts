@@ -15,14 +15,6 @@ const str4 = formatString("hello", undefined);
 // console.log(str3); // Output: "hello world"
 // console.log(str4); // Output: "hello world"
 
-
-
-
-
-
-
-
-
 // problem : 2
 function filterByRating(
   items: { title: string; rating: number }[]
@@ -52,87 +44,59 @@ const books2 = [
 // console.log(filterByRating(books));
 // console.log(filterByRating(books2));
 
-
-
-
-
-
-
 // problem : 3
 function concatenateArrays<T>(...arrays: T[][]): T[] {
-    let result: T[] = [];
-    const length = arrays.length;
-    for (let i = 0; i < length; i++) {
-      result = result.concat(arrays[i]);
-    }
-    return result;
+  let result: T[] = [];
+  const length = arrays.length;
+  for (let i = 0; i < length; i++) {
+    result = result.concat(arrays[i]);
+  }
+  return result;
 }
 // console.log(concatenateArrays([1, 2], [3, 4]));
-// console.log(concatenateArrays([1, 2], [3, 4], [5])); 
-
-
-
-
-
-
-
+// console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
 // problem : 4
 class Vehicle {
-    private make: string;
-    private year: number;
-    constructor(make: string, year: number) {
-        this.make = make;
-        this.year = year;
-        }
-    getInfo(): string {
-        return `Make: ${this.make}, Year: ${this.year}`;
-        }
+  private make: string;
+  private year: number;
+  constructor(make: string, year: number) {
+    this.make = make;
+    this.year = year;
+  }
+  getInfo(): string {
+    return `Make: ${this.make}, Year: ${this.year}`;
+  }
 }
 
 class Car extends Vehicle {
-    private model: string;
-    constructor(make: string, year: number, model: string) {
-        super(make, year);
-        this.model = model;
-        }
-        getModel(): string {
-        return `Model: ${this.model}`;
-        }
-    }
+  private model: string;
+  constructor(make: string, year: number, model: string) {
+    super(make, year);
+    this.model = model;
+  }
+  getModel(): string {
+    return `Model: ${this.model}`;
+  }
+}
 // Example usage:
-    const myCar = new Car("Toyota", 2020, "Corolla");
-    const myCar2 = new Car("Honda", 2021, "Civic");
+const myCar = new Car("Toyota", 2020, "Corolla");
+const myCar2 = new Car("Honda", 2021, "Civic");
 
-    // console.log(myCar.getInfo());  
-    // console.log(myCar.getModel()); 
-
-
-
-
-
-
-
-
+// console.log(myCar.getInfo());
+// console.log(myCar.getModel());
 
 // problem : 5
 function processValue(value: string | number): number {
-    if (typeof value === "string") {
-        return value.length;    
-    } else {
-        return value * 2;
-    }
+  if (typeof value === "string") {
+    return value.length;
+  } else {
+    return value * 2;
+  }
 }
 
 // console.log(processValue("hello")); // Output: 5
-// console.log(processValue(10)); // Output: 20    
-
-
-
-
-
-
-
+// console.log(processValue(10)); // Output: 20
 
 // problem : 6
 interface Product {
@@ -141,26 +105,81 @@ interface Product {
 }
 
 function getMostExpensiveProduct(products: Product[]): Product | null {
-    if (products.length === 0 ){
-        return null;
+  if (products.length === 0) {
+    return null;
+  }
+  let mostExpensiveProduct = products[0];
+  products.forEach((product) => {
+    if (product.price > mostExpensiveProduct.price) {
+      mostExpensiveProduct = product;
     }
-    let mostExpensiveProduct = products[0];
-    products.forEach((product) => {
-        if (product.price > mostExpensiveProduct.price) {
-            mostExpensiveProduct = product;
-        }
-    })
-    return mostExpensiveProduct;
+  });
+  return mostExpensiveProduct;
 }
 
 // Example usage:
 const products = [
   { name: "Pen", price: 10 },
   { name: "Notebook", price: 25 },
-  { name: "Bag", price: 50 }
+  { name: "Bag", price: 50 },
 ];
 
-console.log(getMostExpensiveProduct(products));
+// console.log(getMostExpensiveProduct(products));
+
+// problem : 7
+// Enum to represent days of the week
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  switch (day) {
+    case Day.Monday:
+    case Day.Tuesday:
+    case Day.Wednesday:
+    case Day.Thursday:
+    case Day.Friday:
+      return "Weekday";
+    case Day.Saturday:
+    case Day.Sunday:
+      return "Weekend";
+    default:
+      return "Invalid day";
+  }
+}
+
+// Example usage:
+// console.log(getDayType(Day.Monday)); // Output: "Weekday"
+// console.log(getDayType(Day.Saturday)); // Output: "Weekend"
+
+
+
+
+
+
+
+
+
+
+
+// problem : 8
+async function squareAsync(n: number): Promise<number> {
+  if (n < 0) {
+    throw new Error("Negative number not allowed");
+  }
+
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return n * n;
+}
+
+squareAsync(4).then(console.log); // Output after 1s: 16
+squareAsync(-3).catch(console.error); // Output: Error: Negative number not allowed
 
 
 
